@@ -7,8 +7,8 @@ import kotlin.test.assertEquals
 // https://www.codewars.com/kata/56b5afb4ed1f6d5fb0000991/train/kotlin
 
 class ReverseOrRotate {
-    private fun reverse(rotate: String): String {
-        return ""
+    private fun reverse(value: String): String {
+        return value.toCharArray().reversedArray().joinToString("")
     }
 
     private fun rotate(value: String): String {
@@ -66,6 +66,6 @@ class ReverseOrRotate {
 
     @Test
     fun dummy() {
-        println(rotate("12345"))
+        println(reverse("12345"))
     }
 }
