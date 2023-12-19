@@ -1,13 +1,39 @@
 package katas
 
+import kotlin.math.pow
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
 // https://www.codewars.com/kata/56b5afb4ed1f6d5fb0000991/train/kotlin
 
 class ReverseOrRotate {
-    private fun revRot(value: String, size: Int): String {
+    private fun reverse(rotate: String): String {
         return ""
+    }
+
+    private fun rotate(value: String): String {
+        return ""
+    }
+
+    private fun isSumDivisible(value: String): Boolean = (
+        value.fold(0) { acc, digit -> acc + digit.toString().toDouble().pow(3.0).toInt() } % 2 == 0
+    )
+
+    private fun revRot(value: String, size: Int): String {
+        val chunks = value.chunked(size)
+        var result = ""
+
+        for (chunk in chunks) {
+            if (chunk.length < size) {
+                result += chunk
+                break
+            }
+
+            if (isSumDivisible(chunk)) result += reverse(chunk)
+            else result += rotate(chunk)
+        }
+
+        return result
     }
 
     @Test
@@ -28,5 +54,10 @@ class ReverseOrRotate {
         )
 
         for ((value, size, output) in sample) assertEquals(revRot(value, size), output)
+    }
+
+    @Test
+    fun dummy() {
+        println(isSumDivisible("31"))
     }
 }
