@@ -12,7 +12,15 @@ class ReverseOrRotate {
     }
 
     private fun rotate(value: String): String {
-        return ""
+        val chars = value.toCharArray()
+        val result = CharArray(chars.size)
+
+        for (i in chars.indices) {
+            val newIndex = (i + 1) % chars.size
+            result[i] = chars[newIndex]
+        }
+
+        return result.joinToString("")
     }
 
     private fun isSumDivisible(value: String): Boolean = (
@@ -58,6 +66,6 @@ class ReverseOrRotate {
 
     @Test
     fun dummy() {
-        println(isSumDivisible("31"))
+        println(rotate("12345"))
     }
 }
