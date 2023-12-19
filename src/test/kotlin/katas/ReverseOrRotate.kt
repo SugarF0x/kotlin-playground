@@ -28,6 +28,8 @@ class ReverseOrRotate {
     )
 
     private fun revRot(value: String, size: Int): String {
+        if (value.isEmpty() || size == 0) return ""
+
         val chunks = value.chunked(size)
         var result = ""
 
