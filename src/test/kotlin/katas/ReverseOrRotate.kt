@@ -32,10 +32,7 @@ class ReverseOrRotate {
         var result = ""
 
         for (chunk in chunks) {
-            if (chunk.length < size) {
-                result += chunk
-                break
-            }
+            if (chunk.length < size) break
 
             if (isSumDivisible(chunk)) result += reverse(chunk)
             else result += rotate(chunk)
